@@ -51,20 +51,19 @@ public class App {
                     switch (inputtedChoice) {
                         case 1 -> {
                             System.out.println("Please clarify the name of the task");
-                            Scanner scanner2 = new Scanner(System.in);
-                            String task = scanner2.nextLine();
+                            scanner.nextLine();
+                            String task = scanner.nextLine();
                             System.out.println("Please clarify the priority");
-                            int priority = scanner2.nextInt();
+                            int priority = scanner.nextInt();
                             String newTask = String.format("INSERT INTO timetable (task, priority, status) values('%s', %s, 'to Do')", task, priority);
                             statement.executeUpdate(newTask);
                         }
                         case 2 -> {
                             System.out.println("Please clarify the task ID");
-                            Scanner scanner3 = new Scanner(System.in);
-                            int id = scanner3.nextInt();
-                            scanner3.nextLine();
+                            int id = scanner.nextInt();
+                            scanner.nextLine();
                             System.out.println("Please select the new status of the task(inProgress/done/canceled)");
-                            String status = scanner3.nextLine();
+                            String status = scanner.nextLine();
                             String updateStatus = String.format("UPDATE timetable SET status = '%s' WHERE id = %s", status, id);
                             statement.executeUpdate(updateStatus);
                         }
